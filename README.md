@@ -26,8 +26,8 @@ Comparação de modelos para predição de churn no dataset [Telco Customer Chur
 
 ```bash
 # Clonar e entrar no diretório
-git clone <repo-url>
-cd germano
+git clone https://github.com/bmmuc/churn_redes_neurais.git
+cd churn_redes_neurais
 
 # Criar ambiente e instalar dependências
 uv sync
@@ -79,8 +79,8 @@ drive.mount('/content/drive')
 %cd /content/drive/MyDrive/germano
 
 # Opção B: clonar direto no Colab
-!git clone <repo-url>
-%cd germano
+!git clone https://github.com/bmmuc/churn_redes_neurais.git
+%cd churn_redes_neurais
 ```
 
 ### 2. Instalar dependências
@@ -120,7 +120,7 @@ Os notebooks usam caminhos relativos (`processed/`, `results/`). No Colab, garan
 
 ```python
 import os
-os.chdir('/content/germano')  # ou o caminho do seu Drive
+os.chdir('/content/churn_redes_neurais')  # ou o caminho do seu Drive
 ```
 
 Ou adicione no topo do notebook:
@@ -128,8 +128,8 @@ Ou adicione no topo do notebook:
 ```python
 import sys, os
 # Ajuste conforme seu ambiente
-BASE = '/content/germano'          # Colab
-# BASE = '/content/drive/MyDrive/germano'  # Colab + Drive
+BASE = '/content/churn_redes_neurais'          # Colab
+# BASE = '/content/drive/MyDrive/churn_redes_neurais'  # Colab + Drive
 os.chdir(BASE)
 sys.path.insert(0, BASE)
 ```
