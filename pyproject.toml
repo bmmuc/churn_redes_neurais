@@ -13,6 +13,7 @@ dependencies = [
     "torch>=2.5",
     "torchvision>=0.20",
     "tabpfn>=2.0,<3.0",
+    "autogluon-tabular[mitra]>=1.4",
     "efficient-kan",
     "matplotlib>=3.7",
     "seaborn>=0.13",
