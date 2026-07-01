@@ -12,6 +12,7 @@ Comparação de modelos para predição de churn no dataset [Telco Customer Chur
 | `kan.ipynb` | Kolmogorov-Arnold Network | — |
 | `stab.ipynb` | STAB (Sparse Tabular Attention Boosting) | — |
 | `tabpfn.ipynb` | TabPFN v2 (in-context learning) | — |
+| `tabkan.ipynb` | TabKAN (ChebyshevKAN) | — |
 | `Churn_Prediction.ipynb` | Análise exploratória consolidada (referência) | — |
 
 > `preprocessing.ipynb`, `mlp.ipynb` e `gradient_boosting.ipynb` foram adaptados de `Churn_Prediction.ipynb` para manter congruência de pipeline entre todos os experimentos: mesmo split (70/15/15 estratificado), mesma codificação, mesmo balanceamento (RandomOverSampler apenas no treino) e mesma função `compute_metrics`.
@@ -61,7 +62,8 @@ germano/
     ├── mlp/
     ├── kan/
     ├── stab/
-    └── tabpfn/
+    ├── tabpfn/
+    └── tabkan/
 ```
 
 ---
@@ -96,6 +98,9 @@ Substitua o `uv sync` por `pip install` no Colab (adicione uma célula no iníci
 
 # TabPFN v2
 !pip install -q "tabpfn>=2.0,<3.0"
+
+# TabKAN (ChebyshevKAN)
+!pip install tabkan
 
 # KAN (apenas para kan.ipynb)
 !pip install -q git+https://github.com/Blealtan/efficient-kan.git
