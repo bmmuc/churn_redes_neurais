@@ -450,6 +450,15 @@ wheels = [
 ]
 
 [[package]]
+name = "fkan"
+version = "0.0.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fd/f8/48f75482d350832ebc86aab2b1ab583a07f0494d70db16d78e1a52f442ba/fkan-0.0.2.tar.gz", hash = "sha256:3e7a228cb2bc860fc234a8564cc5e6d3fdcc37b714f09c89c540ffc1fb6a135b", size = 3663, upload-time = "2024-06-11T18:40:35.172Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/72/d6/6fc0149d01c544d2e983a06b9f25bf20821fa8cbd513790203fad93bc335/fkan-0.0.2-py3-none-any.whl", hash = "sha256:f3f537af5c1ac7e7f4029ad2d125d186f5aeede4aa3bafa9a172dd0f3165aa4f", size = 4595, upload-time = "2024-06-11T18:40:33.684Z" },
+]
+
+[[package]]
 name = "fonttools"
 version = "4.63.0"
 source = { registry = "https://pypi.org/simple" }
@@ -503,6 +512,7 @@ dependencies = [
     { name = "scikit-learn" },
     { name = "scipy" },
     { name = "seaborn" },
+    { name = "tabkan" },
     { name = "tabpfn" },
     { name = "torch" },
     { name = "torchvision" },
@@ -526,6 +536,7 @@ requires-dist = [
     { name = "scikit-learn", specifier = ">=1.3" },
     { name = "scipy", specifier = ">=1.11" },
     { name = "seaborn", specifier = ">=0.13" },
+    { name = "tabkan", specifier = ">=1.0.2" },
     { name = "tabpfn", specifier = ">=2.0,<3.0" },
     { name = "torch", specifier = ">=2.5", index = "https://download.pytorch.org/whl/cu124" },
     { name = "torchvision", specifier = ">=0.20", index = "https://download.pytorch.org/whl/cu124" },
@@ -542,7 +553,9 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/42/3c/ff890b466eaba2b0f5e6bdfff025f8c75f41b8ffdc3dbc3d24ad261e764a/greenlet-3.5.1-cp311-cp311-macosx_11_0_universal2.whl", hash = "sha256:73f78f9b9f0a5c06e5c946ba1e8e36f5114923b6be109ee618c54f079c3ea14f", size = 284764, upload-time = "2026-05-20T13:09:10.204Z" },
     { url = "https://files.pythonhosted.org/packages/81/0e/5e5457be3d256918f6a4756f073548a3f0190836e2cc94aa6d0d617a940b/greenlet-3.5.1-cp311-cp311-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:a0cbed8bb44e23c5b199f888f4e4ce096b45ad9f25ff74a7ad0213875e936bb2", size = 603479, upload-time = "2026-05-20T14:00:04.757Z" },
     { url = "https://files.pythonhosted.org/packages/6d/e1/f89a21d58d308298e6f275f13a1b472ed96c680b601a371b08be6a725989/greenlet-3.5.1-cp311-cp311-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:a203a8bd0acb0701653d3bbb26e404854a68674139ed5cbb778830f42b09bb33", size = 615495, upload-time = "2026-05-20T14:05:40.87Z" },
+    { url = "https://files.pythonhosted.org/packages/2c/f2/8fd452fd81adb9ec79c8275c1375702ab0fd6bee4952da12eaa09b9508d8/greenlet-3.5.1-cp311-cp311-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:6ebeb75c81211f5c702576cf81f315e77e23cfdb2c7c6fcb9dd143e6de35c360", size = 623515, upload-time = "2026-05-20T14:09:07.853Z" },
     { url = "https://files.pythonhosted.org/packages/75/de/af6cef182862d2ccd6975440d21c9058a77c3f9b469abf94e322dfd2e0e3/greenlet-3.5.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:8a271fcd66c74615cda6a964fda3f304267a12e50a084472218a39bb0376f563", size = 614754, upload-time = "2026-05-20T13:14:24.947Z" },
+    { url = "https://files.pythonhosted.org/packages/ec/bc/c318aa9f3ffc77320fddcee3d892be957b42e2ff947198d9450b004f3a38/greenlet-3.5.1-cp311-cp311-manylinux_2_39_riscv64.whl", hash = "sha256:017a544f0385d441e88714160d089d6900ef46c9eff9d99b6715a5ef2d127747", size = 418439, upload-time = "2026-05-20T14:01:38.446Z" },
     { url = "https://files.pythonhosted.org/packages/1a/c6/50e520283a9f19388a7326b05f9e8637e566003475eacaadad04f558c68d/greenlet-3.5.1-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:ded7b068c7c31c1a8657d4fd42d886b3e051ae29f88b80c5ff9d502257b0f071", size = 1574097, upload-time = "2026-05-20T14:02:24.003Z" },
     { url = "https://files.pythonhosted.org/packages/21/1c/13abd1f4860d987fa5e1170a01930d6e6cd40d328de487a3c9fdaff0ffd0/greenlet-3.5.1-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:d0932b81d72f552ded9d810d00021b64d89f2195a91ce115b893f943b7a4ab3c", size = 1641058, upload-time = "2026-05-20T13:14:31.83Z" },
     { url = "https://files.pythonhosted.org/packages/f5/56/5f332b7705545eac2dc01b4e9254d24a793f2656d55d5cc6b94ee59d22ae/greenlet-3.5.1-cp311-cp311-win_amd64.whl", hash = "sha256:88e300d136eac057b2397aa1cfd7328b4c87c7eb66a09c7bc6a1292234db474e", size = 238089, upload-time = "2026-05-20T13:14:03.229Z" },
@@ -1471,6 +1484,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pykan"
+version = "0.2.8"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/9b/dc/8f15815b9ffe8d388ff48aa1aa5b700d17d75f19c4d00f78db013d82ad41/pykan-0.2.8.tar.gz", hash = "sha256:b530b96a9f0584db0a3a80b0425b479613eadce966de96bce8b787b60a8abc73", size = 80870, upload-time = "2024-11-14T21:40:24.119Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2b/e2/c0103e253776b2ec01232cceb9f96fe4ff1b1f69150a0f5220f2cca78a93/pykan-0.2.8-py3-none-any.whl", hash = "sha256:31261e40973053ab87cff19713f5d9e1f451f4f9ab183ce56edf2a4a44127213", size = 78055, upload-time = "2024-11-14T21:40:22.659Z" },
+]
+
+[[package]]
 name = "pyparsing"
 version = "3.3.2"
 source = { registry = "https://pypi.org/simple" }
@@ -1629,6 +1651,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz", hash = "sha256:f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed", size = 142856, upload-time = "2026-05-14T19:25:27.735Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl", hash = "sha256:2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0", size = 73075, upload-time = "2026-05-14T19:25:26.443Z" },
+]
+
+[[package]]
+name = "rkan"
+version = "0.0.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/4c/5a/1811d3c824808aeaf07a0c0110917273168115980199029b1d83aadd78b3/rkan-0.0.3.tar.gz", hash = "sha256:af90c9d8cb4eeff100db60b43a5b3535256c2f60923c4e9905d6387e0b14f1ed", size = 7644, upload-time = "2024-06-28T17:25:18.814Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4c/83/988e22434781362476501d4f0188f81aa0834036206224aadac18dd05ff3/rkan-0.0.3-py3-none-any.whl", hash = "sha256:c8eaf168bc7f3194199b76f316c4fc492bbfd8042999aa9d73a44145293a2d16", size = 7307, upload-time = "2024-06-28T17:25:17.142Z" },
 ]
 
 [[package]]
@@ -1836,6 +1867,26 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/ca/99/5a5b6f19ff9f083671ddf7b9632028436167cd3d33e11015754e41b249a4/sympy-1.13.1.tar.gz", hash = "sha256:9cebf7e04ff162015ce31c9c6c9144daa34a93bd082f54fd8f12deca4f47515f", size = 7533040, upload-time = "2024-07-19T09:26:51.238Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b2/fe/81695a1aa331a842b582453b605175f419fe8540355886031328089d840a/sympy-1.13.1-py3-none-any.whl", hash = "sha256:db36cdc64bf61b9b24578b6f7bab1ecdd2452cf008f34faa33776680c26d66f8", size = 6189177, upload-time = "2024-07-19T09:26:48.863Z" },
+]
+
+[[package]]
+name = "tabkan"
+version = "1.0.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "fkan" },
+    { name = "numpy" },
+    { name = "optuna" },
+    { name = "pandas" },
+    { name = "pykan" },
+    { name = "rkan" },
+    { name = "scikit-learn" },
+    { name = "torch" },
+    { name = "tqdm" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6a/01/60e39719c6a3984a0e41cafa5f5d22e695ff1c6bd93327cb8b9164b41fa4/tabkan-1.0.2.tar.gz", hash = "sha256:af1b32ede5c03684f68ff5155cb98606a0400180392e094e005fa62eb263677e", size = 19806, upload-time = "2026-02-07T06:43:13.24Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c3/4d/64bfb93571b174c390c3512f583f644c045358717bea82e0f1aa57e08c6b/tabkan-1.0.2-py3-none-any.whl", hash = "sha256:2e4194eafa10f5d115c75e629c23009eb6a8de222cd6833d159dc0f9ea2482e7", size = 22327, upload-time = "2026-02-07T06:43:06.119Z" },
 ]
 
 [[package]]
