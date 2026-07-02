@@ -32,6 +32,7 @@ def compute_metrics(y_true, y_pred, y_prob):
         'f1':                float(skm.f1_score(y_true, y_pred, zero_division=0)),
         'auroc':             float(skm.roc_auc_score(y_true, y_prob)),
         'ks':                ks,
+        'mse':               float(np.mean((y_prob - y_true) ** 2)),
     }
 
 
@@ -47,6 +48,10 @@ def save_results(model_name, y_true, y_pred, y_prob, scores):
 
     pd.DataFrame([{'model': model_name, **scores}]) \
       .to_csv(f'{out}/scores.csv', index=False)
+
+    tn, fp, fn, tp = skm.confusion_matrix(y_true, y_pred).ravel()
+    pd.DataFrame([{'model': model_name, 'tp': tp, 'fp': fp, 'fn': fn, 'tn': tn}]) \
+      .to_csv(f'{out}/confusion_matrix.csv', index=False)
 
     _plot_ks(y_true, y_prob, model_name, f'{out}/plots/ks_curve.png')
     _plot_roc(y_true, y_prob, model_name, f'{out}/plots/roc_curve.png')
