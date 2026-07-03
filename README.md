@@ -4,18 +4,31 @@ Comparação de modelos para predição de churn no dataset [Telco Customer Chur
 
 ## Modelos
 
-| Notebook | Modelo | Origem |
-|---|---|---|
-| `preprocessing.ipynb` | Pré-processamento + RandomOverSampler | adaptado de `Churn_Prediction.ipynb` |
-| `gradient_boosting.ipynb` | XGBoost com Optuna | adaptado de `Churn_Prediction.ipynb` |
-| `mlp.ipynb` | MLP (PyTorch) | adaptado de `Churn_Prediction.ipynb` |
-| `kan.ipynb` | Kolmogorov-Arnold Network | — |
-| `stab.ipynb` | STAB (Sparse Tabular Attention Boosting) | — |
-| `tabpfn.ipynb` | TabPFN v2 (in-context learning) | — |
-| `tabkan.ipynb` | TabKAN (ChebyshevKAN) | — |
-| `Churn_Prediction.ipynb` | Análise exploratória consolidada (referência) | — |
+| Notebook | Modelo |
+|---|---|
+| `preprocessing.ipynb` | Pré-processamento + RandomOverSampler |
+| `gradient_boosting.ipynb` | XGBoost com Optuna |
+| `mlp.ipynb` | MLP (PyTorch) |
+| `kan.ipynb` | Kolmogorov-Arnold Network |
+| `tabpfn.ipynb` | TabPFN v2 (in-context learning) |
+| `tabkan.ipynb` | TabKAN (ChebyshevKAN) |
+| `mitra.ipynb` | MITRA |
 
-> `preprocessing.ipynb`, `mlp.ipynb` e `gradient_boosting.ipynb` foram adaptados de `Churn_Prediction.ipynb` para manter congruência de pipeline entre todos os experimentos: mesmo split (70/15/15 estratificado), mesma codificação, mesmo balanceamento (RandomOverSampler apenas no treino) e mesma função `compute_metrics`.
+> Todos os modelos usam mesmo pipeline: split 70/15/15 estratificado, mesma codificação, mesmo balanceamento (RandomOverSampler apenas no treino) e mesma função `compute_metrics`.
+
+## Resultados (test set)
+
+| Modelo | Accuracy | Bal. Accuracy | Precision | Recall | F1 | AUROC | KS |
+|---|---|---|---|---|---|---|---|
+| STAB | 0.706 | **0.763** | 0.471 | **0.886** | 0.615 | 0.848 | 0.545 |
+| MLP | 0.728 | 0.756 | 0.491 | 0.818 | 0.614 | 0.844 | 0.540 |
+| KAN | 0.742 | 0.755 | 0.508 | 0.782 | 0.616 | 0.846 | 0.537 |
+| TabKAN | 0.748 | 0.771 | 0.516 | 0.818 | 0.633 | **0.855** | **0.552** |
+| XGBoost | 0.769 | 0.776 | 0.544 | 0.789 | **0.644** | 0.847 | **0.554** |
+| TabPFN | 0.793 | 0.707 | **0.631** | 0.525 | 0.573 | 0.836 | 0.540 |
+| MITRA | **0.801** | 0.695 | 0.682 | 0.468 | 0.555 | 0.845 | 0.555 |
+
+> Melhor por coluna em **negrito**. Modelos ordenados por accuracy crescente.
 
 ## Requisitos
 
@@ -26,18 +39,14 @@ Comparação de modelos para predição de churn no dataset [Telco Customer Chur
 ## Setup local
 
 ```bash
-# Clonar e entrar no diretório
 git clone https://github.com/bmmuc/churn_redes_neurais.git
 cd churn_redes_neurais
 
-# Criar ambiente e instalar dependências
 uv sync
 
-# Ativar ambiente
 source .venv/bin/activate   # Linux/Mac
 # .venv\Scripts\activate    # Windows
 
-# Iniciar Jupyter
 jupyter lab
 ```
 
@@ -45,7 +54,6 @@ jupyter lab
 
 1. **`preprocessing.ipynb`** — obrigatório primeiro. Gera os arquivos em `processed/`
 2. Qualquer notebook de modelo em qualquer ordem
-3. **`Churn_Prediction.ipynb`** — análise comparativa (requer todos os modelos rodados)
 
 ## Estrutura
 
@@ -61,9 +69,9 @@ germano/
     ├── gradient_boosting/
     ├── mlp/
     ├── kan/
-    ├── stab/
     ├── tabpfn/
-    └── tabkan/
+    ├── tabkan/
+    └── mitra/
 ```
 
 ---
@@ -71,8 +79,6 @@ germano/
 ## Rodar no Google Colab
 
 ### 1. Upload dos arquivos
-
-No Colab, faça upload ou monte o Google Drive:
 
 ```python
 # Opção A: mount Drive (recomendado)
@@ -87,10 +93,7 @@ drive.mount('/content/drive')
 
 ### 2. Instalar dependências
 
-Substitua o `uv sync` por `pip install` no Colab (adicione uma célula no início de cada notebook):
-
 ```python
-# Instalar dependências base
 !pip install -q \
     numpy pandas scipy scikit-learn imbalanced-learn \
     xgboost optuna matplotlib seaborn joblib tqdm \
@@ -102,7 +105,7 @@ Substitua o `uv sync` por `pip install` no Colab (adicione uma célula no iníci
 # TabKAN (ChebyshevKAN)
 !pip install tabkan
 
-# KAN (apenas para kan.ipynb)
+# KAN
 !pip install -q git+https://github.com/Blealtan/efficient-kan.git
 
 # PyTorch — Colab já tem, mas para garantir CUDA:
@@ -121,27 +124,10 @@ Para usar GPU no Colab: `Runtime → Change runtime type → T4 GPU`.
 
 ### 4. Ajustes de path
 
-Os notebooks usam caminhos relativos (`processed/`, `results/`). No Colab, garanta que o working directory está correto:
-
 ```python
 import os
 os.chdir('/content/churn_redes_neurais')  # ou o caminho do seu Drive
 ```
-
-Ou adicione no topo do notebook:
-
-```python
-import sys, os
-# Ajuste conforme seu ambiente
-BASE = '/content/churn_redes_neurais'          # Colab
-# BASE = '/content/drive/MyDrive/churn_redes_neurais'  # Colab + Drive
-os.chdir(BASE)
-sys.path.insert(0, BASE)
-```
-
-### 5. Executar notebooks no Colab
-
-O Colab suporta execução direta de `.ipynb`. Faça upload do arquivo ou abra via Drive e execute célula por célula. Comece sempre pelo `preprocessing.ipynb`.
 
 ---
 
